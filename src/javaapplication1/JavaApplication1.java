@@ -5,6 +5,8 @@
  */
 package javaapplication1;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Artur
@@ -15,22 +17,39 @@ public class JavaApplication1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("1. Artur Korobov");
-        String a0, a1, a2, a;
-        a0="2. ";
-        a1="Artur ";
-        a2="Korobov";
-        a=a0+a1+a2;
-        System.out.println(a);    
-        System.out.println("3. 03.02.1995");
-        System.out.println("4. Artur Korobov");
-        System.out.println("03.02.1995"); // Это однострочный комментарий //
-        // И это тоже однострочный комментарий //
-        
-        /* Это многострочный комментарий 
-        и это все еще он же
-        и даже через две строки - он. */
-        
+        String[] famalyFIO
+                = {
+                    "Коробов Артур Алексеевич",
+                    "Коробов Алексей Александрович",
+                    "Коробова Оксана Николаевна"};
+        String me = ("Это я - ").concat(famalyFIO[0]);
+        String dad = ("Это мой отец -").concat(famalyFIO[1]);
+        String mom = ("Это моя мама - ").concat(famalyFIO[2]);
+        System.out.println(me);
+        System.out.println(dad);
+        System.out.println(mom);
+
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == ' ') {
+                System.out.println(i);
+            }
+        }
+
+        Scanner input = new Scanner(System.in); // Объявляем Scanner
+        System.out.println("Enter array length: ");
+        int size = input.nextInt(); // Читаем с клавиатуры размер массива и записываем в size
+        int array[] = new int[size]; // Создаём массив int размером в size
+        System.out.println("Insert array elements:");
+        /*Пройдёмся по всему массиву, заполняя его*/
+        for (int i = 0; i < size; i++) {
+            array[i] = input.nextInt(); // Заполняем массив элементами, введёнными с клавиатуры
+        }
+        System.out.print("Inserted array elements:");
+        for (int i = 0; i < size; i++) {
+            System.out.print(" " + array[i]); // Выводим на экран, полученный массив
+        }
+        System.out.println();
     }
-    
 }
